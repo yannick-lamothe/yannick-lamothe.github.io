@@ -12,7 +12,7 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
@@ -96,12 +96,12 @@ author:
   name             : "Yannick Lamothe"
   avatar           : "/assets/images/bio-photo.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Sharing some digital thoughts."
-  location         : "France"
-  email            : 
+  location         : "Paris, France"
+  email            : yannick@acyl.io
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:yannick@acyl.io"
+      #url: "mailto:yannick@acyl.io"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
