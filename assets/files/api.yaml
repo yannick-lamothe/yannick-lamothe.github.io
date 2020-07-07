@@ -1,0 +1,79 @@
+swagger: '2.0'
+info:
+  version: "0.1.0"
+  title: Data Service - Multi Cloud
+consumes:
+    - application/json
+produces:
+    - application/json
+tags:
+  - name: DataService
+    description: Operations related to managing cloud native events
+
+securityDefinitions:
+    basicAuth:
+        type: basic
+
+# securityDefinitions:
+#   token:
+#     type: apiKey
+#     name: WAMAUTH
+#     in: header
+#   user:
+#     type: apiKey
+#     name: AuthUser
+#     in: header
+# security:
+#   - token: []
+#   - user: []
+definitions:
+  error:
+    x-visibility: public
+    type: object
+    required:
+      - message
+    properties:
+      code:
+        type: integer
+        format: int64
+      message:
+        type: string
+  data:
+    x-visibility: public
+    type: object
+    properties:
+      id:
+        type: string 
+      serviceName:
+        type: string
+      lastPull:
+        type: string
+    
+paths:
+  /data:
+    get:
+      x-visibility: public
+      # To apply Basic auth to the whole API:
+      security:
+        - basicAuth: []
+      description: |
+        Sends back service consumer name and last accessed timestamp and updates last accessed timestamp
+      parameters:
+        - in: query
+          name: serviceName
+          type: string
+          required: true
+        - name: correlationID
+          in: query
+          required: false
+          type: string
+      responses:
+        200:
+          description: Data
+          schema:
+            items:
+              $ref: '#/definitions/data'
+        default:
+          description: Generic error response
+          schema:
+            $ref: '#/definitions/error'
